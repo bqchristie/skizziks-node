@@ -8,6 +8,7 @@ router.get('/', function (req, res, next) {
         {name: 'Doug'},
         {name: 'Garth'},
         {name: 'Dwayne'},
+        {name: 'Dinglebert'},
     ]
     res.send(users);
 });

@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
 
 // Define our user schema
 var EventSchema = new mongoose.Schema({
@@ -13,3 +12,4 @@ var EventSchema = new mongoose.Schema({
 
 // Export the Mongoose model
 module.exports = mongoose.model('Event',EventSchema);
+

@@ -1,15 +1,29 @@
 var express = require('express');
 var router = express.Router();
+var Event = require('../models/event');
 
-/* GET users listing. */
 router.get('/', function (req, res, next) {
-    var users = [
-        {name: 'Bob'},
-        {name: 'Doug'},
-        {name: 'Garth'},
-        {name: 'Dwayne'},
-    ]
-    res.send(users);
+    Event.find(function (err, events) {
+        if (err) res.send(err);
+        res.json(events);
+    })
+
+});
+
+router.post('/', function (req, res) {
+
+    var event = new Event();
+
+    event.name = req.body.name;
+
+    event.save(
+        function (err) {
+            if (err) res.send(err);
+            res.json({message: 'success', data: event});
+
+        }
+    );
+
 });
 
 module.exports = router;
